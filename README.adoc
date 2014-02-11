@@ -1,0 +1,30 @@
+doom-pwads
+==========
+
+This is a simple Makefile-based system to generate PWADs out of the
+official _Doom_ games from id Software. It automates the process of
+extracting all of the levels from the games and recreating a PWAD with
+only those as their contents.
+
+The primary purpose this was written for was to facilitate the use of
+the levels while using the http://freedoom.github.io/[_Freedoom_]
+IWADs: all of its graphics and sounds and such.
+
+In order for this to work, you must have
+https://www.gnu.org/software/make/[Make], which is available in all
+Linux distributions and also Cygwin, and
+https://github.com/chungy/deutex[DeuTex]. Your _Doom_ IWADs must be
+placed outside of the current working directory; the Makefile searches
+for them with a default path of +/usr/share/games/doom+, but this can
+be changed by setting +DOOMWADDIR+, eg: +make DOOMWADDIR=$HOME/doom+.
+
+In order for DeuTex to do its job properly, the current working
+directory *must not* contain any files that match the names of the
+_Doom_ IWADs. For this reason, all of the generated PWADs are put into
+the +wads/+ subdirectory rather than the current working one.
+
+When all is done and good, you can run them by any normal means, for
+example:
+
+* +chocolate-doom -iwad freedoom1.wad -file wads/doom.wad+
+* +prboom-plus -iwad freedoom2.wad -file wads/plutonia.wad+
