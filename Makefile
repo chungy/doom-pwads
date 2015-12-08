@@ -9,7 +9,7 @@ DOOMWADDIR?=/usr/share/games/doom
 # Default to just building all of them
 default: doom.wad doom2.wad tnt.wad plutonia.wad
 
-# Shareware Doom, for completion's sake, but not built by defualt.
+# Shareware Doom, for completion's sake, but not built by default.
 doom1.wad:
 	@mkdir -p wads doom1
 	@deutex -doom $(DOOMWADDIR)/$@ -dir doom1 -levels -lumps -extract $(DOOMWADDIR)/$@
