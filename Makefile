@@ -20,7 +20,7 @@ bootstrap::
 doom1.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads doom1
-	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom1 -levels -lumps -extract $(DOOMWADDIR)/$@
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom1 -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUS/d' doom1/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom1 -make wads/$@
@@ -29,7 +29,7 @@ doom1.wad: bootstrap
 doom.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads doom
-	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom -levels -lumps -extract $(DOOMWADDIR)/$@
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUS/d' doom/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom -make wads/$@
@@ -38,7 +38,7 @@ doom.wad: bootstrap
 doom2.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads doom2
-	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom2 -levels -lumps -extract $(DOOMWADDIR)/$@
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom2 -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUSC/d' doom2/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir doom2 -make wads/$@
@@ -47,7 +47,7 @@ doom2.wad: bootstrap
 tnt.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads tnt
-	@$(DEUTEX) $(DEUTEX_ARGS) -dir tnt -levels -lumps -extract $(DOOMWADDIR)/$@
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir tnt -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUSC/d;/_DEUTEX_/d' tnt/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir tnt -make wads/$@
@@ -56,7 +56,7 @@ tnt.wad: bootstrap
 plutonia.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads plutonia
-	@$(DEUTEX) $(DEUTEX_ARGS) -doom2 $(DOOMWADDIR)/$@ -dir plutonia -levels -lumps -extract $(DOOMWADDIR)/$@
+	@$(DEUTEX) $(DEUTEX_ARGS) -doom2 $(DOOMWADDIR)/$@ -dir plutonia -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUSC/d;/_DEUTEX_/d' plutonia/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir plutonia -make wads/$@
