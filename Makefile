@@ -56,7 +56,7 @@ tnt.wad: bootstrap
 plutonia.wad: bootstrap
 	@echo "Extracting IWAD $@"
 	@mkdir -p wads plutonia
-	@$(DEUTEX) $(DEUTEX_ARGS) -doom2 $(DOOMWADDIR)/$@ -dir plutonia -levels -lumps -extract "$(DOOMWADDIR)/$@"
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir plutonia -levels -lumps -extract "$(DOOMWADDIR)/$@"
 	@sed -i -e '/PLAYPAL/d;/COLORMAP/d;/ENDOOM/d;/GENMIDI/d;/DMXGUSC/d;/_DEUTEX_/d' plutonia/wadinfo.txt
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir plutonia -make wads/$@
