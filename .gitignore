@@ -1,8 +1,7 @@
-deutex.log
-*.wad
-
-doom1/
-doom/
-doom2/
-tnt/
-plutonia/
+/doom1/
+/doom/
+/doom2/
+/heretic/
+/tnt/
+/plutonia/
+/wads/
