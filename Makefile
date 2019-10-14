@@ -10,7 +10,7 @@ DEUTEX_ARGS=-v0 -doom2 bootstrap/
 DOOMWADDIR?=/usr/share/games/doom
 
 # Default to just building all of them
-default: doom.wad doom2.wad tnt.wad plutonia.wad
+default: doom.wad doom2.wad heretic.wad tnt.wad plutonia.wad
 all: default doom1.wad
 
 bootstrap::
@@ -61,6 +61,15 @@ plutonia.wad: bootstrap
 	@echo "Composing PWAD $@"
 	@$(DEUTEX) $(DEUTEX_ARGS) -dir plutonia -make wads/$@
 
+# Heretic: Shadow of the Serpent Riders
+heretic.wad: bootstrap
+	@echo "Extracting IWAD $@"
+	@mkdir -p wads heretic
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir heretic -levels -lumps -extract "$(DOOMWADDIR)/$@"
+	@sed -i -e '/^[A-CF-Z]/d;/^EX/d;/^E2[EP]/d;/^EN/d;/DMXGUS/d' heretic/wadinfo.txt
+	@echo "Composing PWAD $@"
+	@$(DEUTEX) $(DEUTEX_ARGS) -dir heretic -make wads/$@
+
 clean:
-	$(RM) -r *.wad wads doom doom1 doom2 tnt plutonia
+	$(RM) -r *.wad wads doom doom1 doom2 heretic tnt plutonia
 	$(MAKE) -C bootstrap clean
